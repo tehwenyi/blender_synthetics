@@ -199,6 +199,8 @@ To generate synthetic datasets for object detection:
 ## Models
 Currently supports fbx/obj/blend. Ensure your models only contain one object that has the same name as its filename.
 
+If you find that your models lack texture, please ensure that you follow [this link](https://egneva.com/exporting-fbx-files-with-texture-in-blender/) when exporting your models.
+
 ### Classes
 
 Your targets of interest. Bounding boxes will be drawn around these objects.
@@ -213,24 +215,11 @@ Textures that your scene may have. Explore possible textures from [texture haven
 
 ## Parameters
 
-### Occlusion awareness
-
-When not occlusion aware, bounding boxes will surround regions of the object that aren't visible by the camera.
-
-![occ diagram](diagrams/occlusion.jpg)
-
 #### Visibility threshold
 
 The fraction of an object that must be visible by the camera for it to be considered visible to a human annotator.
 
 ![camera diagram](diagrams/visthresh.png)
-
-
-#### Component visibility threshold
-
-The fraction of an object components that must be visible by the camera for it to be considered visible to a human annotator.
-
-![camera diagram](diagrams/comvisthresh.png)
 
 #### Minimum Pixels
 
