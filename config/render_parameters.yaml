@@ -1,23 +1,28 @@
-view_annotations: True # view BBs overlayed on image
+# General settings
+view_annotations: True  # If True, displays bounding boxes overlayed on the image for visual inspection in 'visualizations' folder
+create_sky: True        # If True, a sky background is created in the scene
 
-occlusion_aware: True
-visibility_thresh: 0.5
-component_visibility_thresh: 0.1
-min_pixels: 200
+# Scene parameters
+plane_size: 200          # The size of the ground plane in meters
+min_obj_count: 10        # Minimum number of objects to include in the scene
+max_obj_count: 20        # Maximum number of objects to include in the scene
 
-create_sky: True
+# Camera settings
+camera_horizontal_fov: 40.0  # Horizontal field of view of the camera in degrees
+min_camera_height: 100        # Minimum camera height above the ground in meters
+max_camera_height: 200       # Maximum camera height above the ground in meters
+min_camera_tilt: 75          # Minimum tilt angle of the camera from the horizontal in degrees
+max_camera_tilt: 90          # Maximum tilt angle of the camera from the horizontal in degrees
 
-plane_size: 200 # metres
-min_obj_count: 20 # min number of objects in scene
-max_obj_count: 30 # max number of objects in scene
+# Sunlight settings
+min_sun_energy: 2            # Minimum energy of the sunlight in W/m^2
+max_sun_energy: 5            # Maximum energy of the sunlight in W/m^2
+max_sun_tilt: 90             # Maximum tilt angle of the sun from the vertical in degrees
 
-min_camera_height: 15 # metres
-max_camera_height: 35 # metres
-min_camera_tilt: 86 # degrees
-max_camera_tilt: 89 # degrees
+# Rendering settings
+num_img: 100                   # Number of images to render in the scene
 
-min_sun_energy: 2 # W/m^2
-max_sun_energy: 5 # W/m^2
-max_sun_tilt: 90 # degrees
-
-num_img: 1000 # number of images to render
+# Label creation settings
+visibility_thresh: 0.75      # Minimum ratio of an object's visible area to its total area for it to be considered visible.
+                             # If the visible ratio is below this threshold, the object will be excluded.
+min_pixels: 25              # Minimum number of pixels for an object to be considered in the scene
