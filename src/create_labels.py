@@ -400,6 +400,9 @@ for image_id, image_filepath in enumerate(paths["images"].glob('*'), start=1):
     # Convert bounding box data to DataFrames for COCO annotation
     df_all_objs = pd.DataFrame.from_dict(bbox_annotations_all_objs)
     df_after_occlusion_removal = pd.DataFrame.from_dict(bbox_annotations_after_occlusion_removal)
+    df_all_objs["category_id"] = df_all_objs["category_id"] - 1
+    df_after_occlusion_removal["category_id"] = df_after_occlusion_removal["category_id"] - 1
+
 
     # Ensure each image has corresponding labels, even if empty
     label_filename = image_filepath.with_suffix('.txt').name
